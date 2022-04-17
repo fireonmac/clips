@@ -16,6 +16,7 @@ export class ModalComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    // This code will transfer the modal like portals in React resolving any css conflict issues of nested DOM element.
     document.body.appendChild(this.elRef.nativeElement);
   }
 
