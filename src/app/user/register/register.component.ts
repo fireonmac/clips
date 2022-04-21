@@ -41,12 +41,18 @@ export class RegisterComponent implements OnInit {
     phoneNumber: this.phoneNumber,
   });
 
+  showAlert = false;
+  alertMsg = 'Please wait! Your account is being created.';
+  alertColor = 'blue';
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
   register() {
-    
+    this.showAlert = true;
+    this.alertMsg = 'Please wait! Your account is being created.';
+    this.alertColor = 'blue';
   }
 }

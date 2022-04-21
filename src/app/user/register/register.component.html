@@ -1,3 +1,10 @@
+<app-alert
+  *ngIf="showAlert"
+  [color]="alertColor"
+>
+  {{ alertMsg }}
+</app-alert>
+
 <form [formGroup]="registerForm" (ngSubmit)="register()">  
   <div class="mb-3">
     <label class="inline-block mb-2">Name</label>
