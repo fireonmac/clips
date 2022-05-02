@@ -22,6 +22,7 @@ export class ModalComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.modal.destroy(this.modalID);
+    document.body.removeChild(this.elRef.nativeElement);
   }
 
   isOpen() {
