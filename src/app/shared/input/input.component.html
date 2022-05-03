@@ -22,6 +22,7 @@
     <p *ngIf="control.errors?.email">You must enter a valid email.</p>
     <p *ngIf="control.errors?.min">Value too low.</p>
     <p *ngIf="control.errors?.max">Value too high.</p>
+    <p *ngIf="control.errors?.noMatch">Passwords do not match.</p>
     <p *ngIf="control.errors?.pattern">Password must be at least 8 characters long, 
       have 1 uppercase letter, 1 lowercase letter, and 1 number.</p>
   </div>
