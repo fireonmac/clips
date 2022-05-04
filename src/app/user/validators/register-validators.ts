@@ -1,8 +1,8 @@
-import { AbstractControl, FormControl, ValidationErrors } from '@angular/forms';
+import { AbstractControl, ValidationErrors } from '@angular/forms';
 
 export class RegisterValidators {
   static match(controlName: string, matchingControlName: string) {
-    (group: AbstractControl): ValidationErrors | null => {
+    return (group: AbstractControl): ValidationErrors | null => {
 
       const control = group.get(controlName);
       const matchingControl = group.get(matchingControlName);

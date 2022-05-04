@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
-<<<<<<< HEAD
 import { EmailTaken } from '../validators/email-taken';
-=======
 import { RegisterValidators } from '../validators/register-validators';
->>>>>>> 8a9d32106e30d3ea1d554204f6d3f80ba1c65e0d
 
 @Component({
   selector: 'app-register',
