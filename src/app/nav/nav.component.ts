@@ -11,7 +11,7 @@ export class NavComponent implements OnInit {
   
   constructor(
     public modal: ModalService,
-    public auth: AuthService
+    public auth: AuthService,
   ) { }
 
   ngOnInit(): void {
@@ -25,7 +25,6 @@ export class NavComponent implements OnInit {
 
   async logout($event: Event) {
     $event.preventDefault();
-
     await this.auth.logout();
   }
 }
