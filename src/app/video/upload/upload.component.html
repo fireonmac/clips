@@ -5,9 +5,20 @@
 
     <!-- Upload Dropbox -->
     <div
+      (dragenter)="isDragover = true"
+      (dragover)="isDragover = true"
+      (dragend)="isDragover = false"
+      (dragleave)="isDragover = false"
+      (mouseleave)="isDragover = false"
+      (drop)="storeFile($event)"
+      appEventBlocker
+      [ngClass]="{
+        'bg-indigo-400 border-indigo-400 border-solid': isDragover
+      }"
       class="w-full px-10 py-40 rounded text-center cursor-pointer border border-dashed
-        border-gray-400 transition duration-500 hover:text-white
-        hover:bg-indigo-400 hover:border-indigo-400 hover:border-solid text-xl">
+        border-gray-400 transition duration-500 hover:text-white text-xl
+        hover:bg-indigo-400 hover:border-indigo-400 hover:border-solid"
+    >
       <h5>Drop your file here (mp4 only!)</h5>
     </div>
 
@@ -17,7 +28,7 @@
       <!-- Form -->
       <form>
         <!-- Screenshots -->
-        <h2 class="mb-4 text-xl">Select a Thumbnail</h2>
+        <h2 class="mt-4 mb-4 text-xl">Select a Thumbnail</h2>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
           <div class="border-8 cursor-pointer border-green-400">
             <img src="assets/img/1.jpg">
