@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
+import { combineLatest, Observable, of } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 
 import { AngularFireAuth } from '@angular/fire/compat/auth';
@@ -27,18 +27,19 @@ export class ClipService {
     return this.clipsCollection.add(data);
   }
 
-  getUserClips() {
-    return this.auth.user.pipe(
-      switchMap((user => {
+  getUserClips(sortOrder$: Observable<string>) {
+    return combineLatest([this.auth.user, sortOrder$]).pipe(
+      switchMap(([user, sortOrder]) => {
         if (!user) {
           return of([]);
         }
         
         const query = this.clipsCollection.ref
-          .where('uid', '==', user.uid);
+          .where('uid', '==', user.uid)
+          .orderBy('timestamp', sortOrder === '1' ? 'desc' : 'asc')
   
         return query.get();
-      })),
+      }),
       map((snapshot) => (snapshot as QuerySnapshot<IClip>).docs)
     )
   }
