@@ -66,4 +66,12 @@ export class ManageComponent implements OnInit {
       target.title = $event.title;
     }
   }
+
+  async delete($event: Event, clip: IClip) {
+    $event.preventDefault();
+
+    await this.clipService.deleteClip(clip);
+
+    this.clips = this.clips.filter(c => c.docID !== clip.docID);
+  }
 }
